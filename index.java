@@ -1,5 +1,22 @@
+int bgColor = 255;
+int strokeColor = 0;
+int canvasSize = 500;
+
+int sqColor = 175;
+int sqSize = 225;
+int sqXPos = 150;
+int sqYPos = 150;
+
+int ellColor = 255;
+int ellSize = 100;
+int ellXPos = 150;
+int ellYPos = 150;
+int ballSpeed = 2;
+
 void setup() {
-	size(500, 500);
+	size(canvasSize, canvasSize);
+  rectMode(CENTER);
+  ellipseMode(CENTER);
 }
 
 void draw() {
@@ -16,10 +33,15 @@ void draw() {
 
 // Step 4: Make it so when the program runs the ball slides off the screen exiting at the point (500, 500)
 
-  background(255);
-  stroke(0);
+  background(bgColor);
+  stroke(strokeColor);
 
+  fill(sqColor);
+  rect(sqXPos, sqYPos, sqSize, sqSize);
 
-  
+  fill(ellColor);
+  ellipse(ellXPos, ellYPos, ellSize, ellSize);
 
+  ellXPos += ballSpeed;
+  ellYPos += ballSpeed;
 }
