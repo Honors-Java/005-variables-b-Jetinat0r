@@ -2,21 +2,25 @@ int bgColor = 255;
 int strokeColor = 0;
 int canvasSize = 500;
 
-int sqColor = 175;
-int sqSize = 225;
-int sqXPos = 150;
-int sqYPos = 150;
+int sqR;
+int sqG;
+int sqB;
+int sqWidth;
+int sqHeight;
+int sqXPos;
+int sqYPos;
 
-int ellColor = 255;
-int ellSize = 100;
-int ellXPos = 150;
-int ellYPos = 150;
-int ballSpeed = 2;
+int ellR;
+int ellG;
+int ellB;
+int ellSize = 10;
 
 void setup() {
 	size(canvasSize, canvasSize);
   rectMode(CENTER);
   ellipseMode(CENTER);
+
+  randomizeSquareVars();
 }
 
 void draw() {
@@ -33,15 +37,31 @@ void draw() {
 
 // Step 4: Make it so when the program runs the ball slides off the screen exiting at the point (500, 500)
 
-  background(bgColor);
   stroke(strokeColor);
+  
+  ellR = random(0, 255);
+  ellG = random(0, 255);
+  ellB = random(0, 255);
 
-  fill(sqColor);
-  rect(sqXPos, sqYPos, sqSize, sqSize);
+  fill(ellR, ellG, ellB);
+  ellipse(mouseX + random(-30, 30), mouseY + random(-30, 30), ellSize, ellSize);
 
-  fill(ellColor);
-  ellipse(ellXPos, ellYPos, ellSize, ellSize);
+  fill(sqR, sqG, sqB);
+  rect(sqXPos, sqYPos, sqWidth, sqHeight);
+}
 
-  ellXPos += ballSpeed;
-  ellYPos += ballSpeed;
+void mousePressed(){
+  background(bgColor);
+
+  randomizeSquareVars()
+}
+
+void randomizeSquareVars(){
+  sqR = random(0, 255);
+  sqG = random(0, 255);
+  sqB = random(0, 255);
+  sqWidth = random(1, 255);
+  sqHeight = random(1, 255);
+  sqXPos = random(0, 500);
+  sqYPos = random(0, 500);
 }
