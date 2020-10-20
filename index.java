@@ -43,11 +43,11 @@ void draw() {
   ellG = random(0, 255);
   ellB = random(0, 255);
 
-  fill(ellR, ellG, ellB);
-  ellipse(mouseX + random(-30, 30), mouseY + random(-30, 30), ellSize, ellSize);
-
   fill(sqR, sqG, sqB);
   rect(sqXPos, sqYPos, sqWidth, sqHeight);
+
+  fill(ellR, ellG, ellB);
+  ellipse(mouseX + random(-30, 30), mouseY + random(-30, 30), ellSize, ellSize);
 }
 
 void mousePressed(){
